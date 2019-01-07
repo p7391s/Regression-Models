@@ -62,8 +62,9 @@ head(mtcars_factors)
 Find the relationship between the two parameters of interest.
 
 ```{r}
-g <- ggplot(mtcars_factors, aes(am, mpg))
-g + geom_boxplot(col = "green", fill = "lightgreen") +
+g <- ggplot(mtcars_factors, aes(x = am, y = mpg, fill = am))
+g + geom_boxplot() +
+        scale_fill_manual(name = "am", values = c("yellow", "green")) +
         ggtitle("Relationship between MPG and automatic or manual geer") + 
         theme(plot.title = element_text(face = "bold", size = 12))
 ```
